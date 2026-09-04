@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dj1nry334p8on"]
+
+[ext_resource type="Texture2D" uid="uid://cxbtlgvxa3100" path="res://assets/zombie.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://c7gnv748ndb8s" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7p1mj"]
+light_mode = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hu8a"]
+radius = 25.0
+height = 80.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=922703141]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=925260595]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_7p1mj")
+scale = Vector2(3, 3)
+texture = ExtResource("1_7p1mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124924026]
+position = Vector2(-8, 0)
+shape = SubResource("CapsuleShape2D_7hu8a")
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=99677101]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector" unique_id=1227629115]
+position = Vector2(-1.5258789e-05, 6.2407417)
+scale = Vector2(0.9999999, 1.5092593)
+polygon = PackedVector2Array(-1.999985, 131.03069, -0.99998486, -129.36195, 546.00006, -119.42332, 682.00006, -5.460123, 546.00006, 122.417175)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

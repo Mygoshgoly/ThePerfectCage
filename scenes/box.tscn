@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dqxf00mnfb58k"]
+
+[ext_resource type="Texture2D" uid="uid://dicgwjq66a130" path="res://assets/box.png" id="1_3inec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hu8a"]
+size = Vector2(144, 144)
+
+[node name="box" type="StaticBody2D" unique_id=2080824979]
+collision_mask = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1913373022]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_3inec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817727214]
+shape = SubResource("RectangleShape2D_7hu8a")
