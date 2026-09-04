@@ -1,3 +1,7 @@
-# BangerGame
+# BangerGame (not final title
+Work in progress
 
-awesonm shit
+things done:
+- flashlight on/off with RMB click
+- player movement
+- enemy tracking player
